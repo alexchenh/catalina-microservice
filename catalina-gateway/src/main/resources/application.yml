@@ -1,0 +1,98 @@
+server:
+  port: 9999
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # 启用服务发现，开启从注册中心动态创建路由的功能
+          lower-case-service-id: true #使用小写service-id，默认是大写
+      routes:
+        - id: catalina-gateway  #路由ID
+          predicates:
+            - Path=/catalina-gateway/**
+          uri: lb://catalina-gateway  #匹配后路由地址
+          filters:
+            - StripPrefix=1
+        - id: catalina-admin
+          predicates:
+            - Path=/catalina-admin/**
+          uri: lb://catalina-admin
+          filters:
+            - StripPrefix=1
+        - id: catalina-oms
+          uri: lb://catalina-oms
+          predicates:
+            - Path=/catalina-oms/**
+          filters:
+            - StripPrefix=1
+        - id: catalina-pms
+          uri: lb://catalina-pms
+          predicates:
+            - Path=/catalina-pms/**
+          filters:
+            - StripPrefix=1
+        - id: catalina-ums
+          uri: lb://catalina-ums
+          predicates:
+            - Path=/catalina-ums/**
+          filters:
+            - StripPrefix=1
+        - id: catalina-sms
+          uri: lb://catalina-sms
+          predicates:
+            - Path=/catalina-sms/**
+          filters:
+            - StripPrefix=1
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # 获取JWT验签公钥请求路径
+          jwk-set-uri: 'http://localhost:8000/catalina-gateway/getPublicKey' #配置RSA的公钥访问地址
+
+  redis:
+    database: 0
+    port: 6379
+    host: localhost
+    password:
+
+secure:
+  ignore:
+    urls: #配置白名单路径
+      - "/doc.html"
+      - "/swagger-resources/**"
+      - "/swagger/**"
+      - "/**/v2/api-docs"
+      - "/**/*.js"
+      - "/**/*.css"
+      - "/**/*.png"
+      - "/**/*.ico"
+      - "/webjars/springfox-swagger-ui/**"
+      - "/actuator/**"
+      - "/catalina-gateway/oauth/token"
+      - "/catalina-gateway/getPublicKey"
+      - "/catalina-search/**"
+      - "/catalina-app/sso/login"
+      - "/catalina-app/sso/register"
+      - "/catalina-app/sso/getAuthCode"
+      - "/catalina-app/home/**"
+      - "/catalina-app/product/**"
+      - "/catalina-app/brand/**"
+      - "/catalina-admin/admin/login"
+      - "/catalina-admin/admin/register"
+      - "/catalina-admin/minio/upload"
+
+management: #开启SpringBoot Admin的监控
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+
+

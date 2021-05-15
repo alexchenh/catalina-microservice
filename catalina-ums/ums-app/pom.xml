@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ums-app</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>ums-app</name>
+    <description>Demo project for Spring Boot</description>
+
+    <parent>
+        <artifactId>catalina-ums</artifactId>
+        <groupId>com.chenh.catalina</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+
+        <!-- common-redis 模块 -->
+        <dependency>
+            <groupId>com.chenh.catalina</groupId>
+            <artifactId>common-mybatis</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!-- common-web 模块 -->
+        <dependency>
+            <groupId>com.chenh.catalina</groupId>
+            <artifactId>common-web</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!-- common-redis 模块 -->
+        <dependency>
+            <groupId>com.chenh.catalina</groupId>
+            <artifactId>common-redis</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.chenh.catalina</groupId>
+            <artifactId>auth-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.chenh.catalina</groupId>
+            <artifactId>ums-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- Nacos 注册中心 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!-- Nacos 配置中心 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>

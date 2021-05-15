@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>catalina-auth</artifactId>
+        <groupId>com.chenh.catalina</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>auth-app</artifactId>
+
+    <dependencies>
+
+        <!-- common模块的core子模块 -->
+        <dependency>
+            <groupId>com.chenh.catalina</groupId>
+            <artifactId>common-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- auth模块的feign客户端 -->
+        <dependency>
+            <groupId>com.chenh.catalina</groupId>
+            <artifactId>auth-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!-- admin模块的feign客户端 -->
+        <dependency>
+            <groupId>com.chenh.catalina</groupId>
+            <artifactId>admin-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!-- ums模块的feign客户端 -->
+        <dependency>
+            <groupId>com.chenh.catalina</groupId>
+            <artifactId>ums-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- web模块 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--Nacos 注册中心-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--Nacos 配置中心-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!-- spring security Oauth2 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+        </dependency>
+
+        <!-- jwt库 -->
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>
